@@ -1,9 +1,22 @@
+import { Metadata } from "next";
+
+type Props = {
+  params: {
+    productId: string;
+  };
+};
+
+export const generateMetadata = ({ params }: Props) : Metadata => {
+  return {
+    title: `Product ${params.productId}`,
+    description: `Details about Product ${params.productId}`,
+  };
+}
+
 
 export default function ProductDetails({
   params,
-} : { 
-  params : {productId: string};
-}) {
+} : Props) {
   return (
     <h1>Details about Product {params.productId} </h1>
   )
